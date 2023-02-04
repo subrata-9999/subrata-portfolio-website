@@ -38,15 +38,15 @@ document.querySelector(".btn_c").addEventListener("click", function (e) {
       From: "myprotfolio357@gmail.com",
       Subject: name,
       Body: `NAME : ${name} <br><br> MAIL ID : ${mail_id} <br><br> ${message}`,
-    }).then((message) => alert("Massage Sent Successfully"));
+    })
 
     Email.send({
-      SecureToken: "8a59f3ad-91a3-4f33-bc2a-0bca4f48e8a2",
+      SecureToken: "f540aa4a-8269-4442-8e3b-e8a5ef66491b",
       To: mail_id,
-      From: "myprotfolio357@gmail.com",
-      Subject: name,
-      Body: `lawra`,
-    }).then((message) => alert("Massage Sent Successfully"));
+      From: "subrata.pramanik.subho@gmail.com",
+      Subject: "subrata via portfolio",
+      Body: `Thanks ${name} for connecting me <3 \nI have recieved your email. We will get back shortly :) \nHave a nice day ☀️`,
+    }).then((message) => alert("Massage Sent Successfully\nCheck your Mail(spam also)"));
 
     document.getElementById("user_name").value = "";
     document.getElementById("mail_id").value = "";
