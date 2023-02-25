@@ -33,7 +33,7 @@ body {
   height: 100%;
   backface-visibility: visible;
   background-attachment: fixed;
-  background-color: #2E0249;
+  background-color: #1c022d;
   
 }
 .navbar {
@@ -57,7 +57,7 @@ body {
   color: #1afe05;
 }
 .my-nav {
-  background-color: #2E0249;
+  background-color: #1c022d;
 }
 .my-nav-option:hover {
   color: #1ef806;
