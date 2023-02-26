@@ -985,8 +985,8 @@ footer {
   margin-top: 4%;
   color: white;
   font-size: 35px;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 12%;
+  padding-right: 12%;
 }
 
 @media (max-width: 927px) {
