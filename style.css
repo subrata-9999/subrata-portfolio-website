@@ -469,7 +469,7 @@ div.about-icon-container {
   width: 85%;
   height: auto;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   margin-bottom: 2%;
 }
