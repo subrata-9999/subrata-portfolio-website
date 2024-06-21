@@ -900,7 +900,8 @@ textarea {
   .contact-button-container {
     width: 40%;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    
   }
   .contact-icon-wp {
     margin: 0;
@@ -926,7 +927,7 @@ footer {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-around;
+  justify-content: center;
   padding-left: 35%;
   padding-right: 35%;
 }
