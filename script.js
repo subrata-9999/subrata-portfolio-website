@@ -26,40 +26,67 @@ shutter_down.addEventListener("click", function () {
   nav.classList.remove("bg-transparent");
 });
 
-document.querySelector(".btn_c").addEventListener("click", function (e) {
-  const name = document.getElementById("user_name").value;
-  const mail_id = document.getElementById("mail_id").value;
-  const message = document.getElementById("message_body").value;
 
-  if (!(!name || !mail_id || !message)) {
-    Email.send({
-      SecureToken: "8a59f3ad-91a3-4f33-bc2a-0bca4f48e8a2",
-      To: "pramaniksubho954@gmail.com",
-      From: "myprotfolio357@gmail.com",
-      Subject: name,
-      Body: `NAME : ${name} <br><br> MAIL ID : ${mail_id} <br><br> ${message}`,
-    })
+emailjs.init("FHjQCdg0p2Dce04aZ");
 
-    Email.send({
-      SecureToken: "f540aa4a-8269-4442-8e3b-e8a5ef66491b",
-      To: mail_id,
-      From: "subrata.pramanik.subho@gmail.com",
-      Subject: "subrata via portfolio",
-      Body: `Thanks ${name} for connecting me <3 \nI have recieved your email. We will get back shortly :) \nHave a nice day ☀️`,
-    }).then((message) => alert("Massage Sent Successfully\nCheck your Mail(spam also)"));
+    
+      document.querySelector(".btn_c").addEventListener("click", function (e) {
+        e.preventDefault(); // Prevent form submission
+    
+        const name = document.getElementById("user_name").value;
+        const mail_id = document.getElementById("mail_id").value;
+        const message = document.getElementById("message_body").value;
+    
+        if (name && mail_id && message) {
+          // Send confirmation email to user
+          emailjs.send("service_xyxk5uy", "template_16recw9", {
+            to_name: name,
+            from_name: "Subrata Pramanik",
+            reply_to: mail_id,
+            message: `Thanks ${name} for connecting me <3 \nI have received your email. We will get back shortly :) \nHave a nice day ☀️`,
+          }).then(
+            function(response) {
+              alert("Message Sent Successfully\nCheck your Mail (spam also)");
+            },
+            function(error) {
+              console.error("Failed to send confirmation email:", error);
+              alert("Failed to send the confirmation email. Please try again.");
+            }
+          );
+    
+          // Send notification email to you
+          emailjs.send("service_xyxk5uy", "template_16recw9", {
+            to_name: "Subrat Pramanik",
+            from_name: "Your Portfolio",
+            message: message+ "\nThis is generated from your portfolio",
+            reply_to: "myprotfolio357@gmail.com",
+          }).then(
+            function(response) {
+              // alert("Message Sent Successfully\nCheck your Mail (spam also)");
+              // Clear form fields
+              console.log("Message Sent Successfully\nCheck your Mail (spam also), for owner");
+          
+            },
+            function(error) {
+              // console.error("Failed to send message:", error);
+              // alert("Failed to send the message. Please try again.");
+            }
+          );
 
-    document.getElementById("user_name").value = "";
-    document.getElementById("mail_id").value = "";
-    document.getElementById("message_body").value = "";
-  } else if (!(!name || !mail_id || message)) {
-    alert("Please Fill the Message section");
-  } else if (!(!name || mail_id || !message)) {
-    alert("Please enter Your Mail ID");
-  } else if (!(name || !mail_id || message)) {
-    alert("Please Enter Your Name");
-  } else {
-    alert("Please Fill All the Section");
-  }
-
-  e.preventDefault();
-});
+          document.getElementById("user_name").value = "";
+          document.getElementById("mail_id").value = "";
+          document.getElementById("message_body").value = "";
+    
+          
+        } else {
+          if (!message) {
+            alert("Please fill the message section");
+          } else if (!mail_id) {
+            alert("Please enter your email ID");
+          } else if (!name) {
+            alert("Please enter your name");
+          } else {
+            alert("Please fill all the sections");
+          }
+        }
+      });
