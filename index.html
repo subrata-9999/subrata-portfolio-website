@@ -473,40 +473,116 @@
   </script>
 
   <script>
-    emailjs.init("5Ueb2VU9SGfmX26ml");
+//     emailjs.init("5Ueb2VU9SGfmX26ml");
 
-    // 🔥 GLOBAL HARD BLOCK (CAPTURE PHASE)
-    document.addEventListener(
-      "submit",
-      function (e) {
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        return false;
-      },
-      true // 👈 VERY IMPORTANT (capture phase)
-    );
+//     document.addEventListener(
+//       "submit",
+//       function (e) {
+//         e.preventDefault();
+//         e.stopImmediatePropagation();
+//         return false;
+//       },
+//       true // 
+//     );
 
-    document.addEventListener("click", function (e) {
-      const btn = e.target.closest(".btn_c");
-      if (!btn) return;
+//     document.addEventListener("click", function (e) {
+//       const btn = e.target.closest(".btn_c");
+//       if (!btn) return;
 
+//       e.preventDefault();
+//       e.stopImmediatePropagation();
+
+//       const name = document.getElementById("user_name")?.value.trim();
+//       const email = document.getElementById("mail_id")?.value.trim();
+//       const message = document.getElementById("message_body")?.value.trim();
+
+//       if (!name || !email || !message) {
+//         alert("Please fill all fields");
+//         return;
+//       }
+
+//       btn.disabled = true;
+//       const oldText = btn.innerText;
+//       btn.innerText = "Sending...";
+
+//       const userMail = emailjs.send("service_cvp5dqa", "template_16recw9", {
+//         to_name: name,
+//         from_name: "Subrata Pramanik",
+//         reply_to: email,
+//         message: `Hi ${name},
+
+// Thanks for contacting me 😊
+// I will get back to you shortly.`,
+//       });
+
+//       const ownerMail = emailjs.send("service_cvp5dqa", "template_16recw9", {
+//         to_name: "Subrata Pramanik",
+//         from_name: "Portfolio Website",
+//         reply_to: 'myportfolio357@gmail.com',
+//         message: `New message from portfolio
+
+// Name: ${name}
+// Email: ${email}
+
+// Message:
+// ${message}`,
+//       });
+
+//       Promise.all([userMail, ownerMail])
+//         .then(() => {
+//           alert("Message sent successfully 📩");
+//           document.querySelectorAll("form").forEach(f => f.reset());
+//         })
+//         .catch((err) => {
+//           console.error(err);
+//           alert("Failed to send message");
+//         })
+//         .finally(() => {
+//           btn.disabled = false;
+//           btn.innerText = oldText;
+//         });
+//     });
+  </script>
+
+<script src="env.js"></script>
+
+<script>
+  emailjs.init(window.__ENV__.EMAILJS_PUBLIC_KEY);
+
+  document.addEventListener(
+    "submit",
+    function (e) {
       e.preventDefault();
       e.stopImmediatePropagation();
+      return false;
+    },
+    true
+  );
 
-      const name = document.getElementById("user_name")?.value.trim();
-      const email = document.getElementById("mail_id")?.value.trim();
-      const message = document.getElementById("message_body")?.value.trim();
+  document.addEventListener("click", function (e) {
+    const btn = e.target.closest(".btn_c");
+    if (!btn) return;
 
-      if (!name || !email || !message) {
-        alert("Please fill all fields");
-        return;
-      }
+    e.preventDefault();
+    e.stopImmediatePropagation();
 
-      btn.disabled = true;
-      const oldText = btn.innerText;
-      btn.innerText = "Sending...";
+    const name = document.getElementById("user_name")?.value.trim();
+    const email = document.getElementById("mail_id")?.value.trim();
+    const message = document.getElementById("message_body")?.value.trim();
 
-      const userMail = emailjs.send("service_cvp5dqa", "template_16recw9", {
+    if (!name || !email || !message) {
+      alert("Please fill all fields");
+      return;
+    }
+
+    btn.disabled = true;
+    const oldText = btn.innerText;
+    btn.innerText = "Sending...";
+
+    const userMail = emailjs.send(
+      window.__ENV__.EMAILJS_SERVICE_ID,
+      window.__ENV__.EMAILJS_TEMPLATE_ID,
+      {
         to_name: name,
         from_name: "Subrata Pramanik",
         reply_to: email,
@@ -514,12 +590,16 @@
 
 Thanks for contacting me 😊
 I will get back to you shortly.`,
-      });
+      }
+    );
 
-      const ownerMail = emailjs.send("service_cvp5dqa", "template_16recw9", {
+    const ownerMail = emailjs.send(
+      window.__ENV__.EMAILJS_SERVICE_ID,
+      window.__ENV__.EMAILJS_TEMPLATE_ID,
+      {
         to_name: "Subrata Pramanik",
         from_name: "Portfolio Website",
-        reply_to: 'myportfolio357@gmail.com',
+        reply_to: "myportfolio357@gmail.com",
         message: `New message from portfolio
 
 Name: ${name}
@@ -527,23 +607,25 @@ Email: ${email}
 
 Message:
 ${message}`,
-      });
+      }
+    );
 
-      Promise.all([userMail, ownerMail])
-        .then(() => {
-          alert("Message sent successfully 📩");
-          document.querySelectorAll("form").forEach(f => f.reset());
-        })
-        .catch((err) => {
-          console.error(err);
-          alert("Failed to send message");
-        })
-        .finally(() => {
-          btn.disabled = false;
-          btn.innerText = oldText;
-        });
-    });
-  </script>
+    Promise.all([userMail, ownerMail])
+      .then(() => {
+        alert("Message sent successfully 📩");
+        document.querySelectorAll("form").forEach((f) => f.reset());
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("Failed to send message");
+      })
+      .finally(() => {
+        btn.disabled = false;
+        btn.innerText = oldText;
+      });
+  });
+</script>
+
 </body>
 
 
