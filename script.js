@@ -99,9 +99,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // 6. Real EmailJS Form Handler
   if (window.emailjs && window.__ENV__ && window.__ENV__.EMAILJS_PUBLIC_KEY) {
     try {
-      emailjs.init(window.__ENV__.EMAILJS_PUBLIC_KEY);
+      emailjs.init({
+        publicKey: window.__ENV__.EMAILJS_PUBLIC_KEY
+      });
     } catch (e) {
-      console.warn('EmailJS initialization warning:', e);
+      try {
+        emailjs.init(window.__ENV__.EMAILJS_PUBLIC_KEY);
+      } catch (err) {
+        console.warn('EmailJS initialization warning:', err);
+      }
     }
   }
 
@@ -131,61 +137,69 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (window.emailjs && window.__ENV__ && window.__ENV__.EMAILJS_SERVICE_ID) {
-        const userMail = emailjs.send(
+        const templateParams = {
+          to_name: 'Subrata Pramanik',
+          from_name: name,
+          reply_to: email,
+          message: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+        };
+
+        emailjs.send(
           window.__ENV__.EMAILJS_SERVICE_ID,
           window.__ENV__.EMAILJS_TEMPLATE_ID,
-          {
-            to_name: name,
-            from_name: 'Subrata Pramanik',
-            reply_to: email,
-            message: `Hi ${name},\n\nThanks for reaching out! I will get back to you shortly.\n\nBest regards,\nSubrata Pramanik`,
-          }
-        );
-
-        const ownerMail = emailjs.send(
-          window.__ENV__.EMAILJS_SERVICE_ID,
-          window.__ENV__.EMAILJS_TEMPLATE_ID,
-          {
-            to_name: 'Subrata Pramanik',
-            from_name: 'Portfolio Contact Form',
-            reply_to: 'myprotfolio357@gmail.com',
-            message: `New message from portfolio visitor:\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-          }
-        );
-
-        Promise.all([userMail, ownerMail])
-          .then(() => {
-            if (formFeedback) {
-              formFeedback.textContent = 'Thank you! Your message has been sent successfully. 🚀';
-              formFeedback.className = 'form-feedback success';
-            }
-            contactForm.reset();
-          })
-          .catch((err) => {
-            console.error('EmailJS error:', err);
-            if (formFeedback) {
-              formFeedback.textContent = 'Failed to send message. Please contact me directly via email.';
-              formFeedback.className = 'form-feedback error';
-            }
-          })
-          .finally(() => {
-            if (submitBtn) {
-              submitBtn.disabled = false;
-              submitBtn.innerHTML = '<span>Send Message</span> <i class="fa-solid fa-arrow-right"></i>';
-            }
-          });
-      } else {
-        setTimeout(() => {
+          templateParams
+        )
+        .then(() => {
           if (formFeedback) {
-            formFeedback.textContent = 'Thank you! Your message has been received.';
+            formFeedback.innerHTML = '<span>Thank you! Your message has been sent successfully. 🚀</span>';
             formFeedback.className = 'form-feedback success';
           }
           contactForm.reset();
+        })
+        .catch((err) => {
+          console.error('EmailJS error:', err);
+          const mailtoUrl = `mailto:subrataparam7@gmail.com?subject=${encodeURIComponent('Portfolio Message from ' + name)}&body=${encodeURIComponent('Hi Subrata,\n\n' + message + '\n\nFrom: ' + name + ' (' + email + ')')}`;
+
+          let reason = 'Please reconnect your Gmail service in dashboard.emailjs.com';
+          if (err && err.text) {
+            reason = err.text;
+          }
+
+          if (formFeedback) {
+            formFeedback.className = 'form-feedback error';
+            formFeedback.innerHTML = `
+              <div>⚠️ Direct sending issue (${reason}).</div>
+              <div class="fallback-action-wrap">
+                <a href="${mailtoUrl}" class="btn btn-sm btn-primary">
+                  <i class="fa-solid fa-envelope-open-text"></i> Click to Send via Your Mail App
+                </a>
+              </div>
+            `;
+          }
+        })
+        .finally(() => {
           if (submitBtn) {
             submitBtn.disabled = false;
             submitBtn.innerHTML = '<span>Send Message</span> <i class="fa-solid fa-arrow-right"></i>';
           }
-        }, 1000);
+        });
+      } else {
+        const mailtoUrl = `mailto:subrataparam7@gmail.com?subject=${encodeURIComponent('Portfolio Message from ' + name)}&body=${encodeURIComponent(message)}`;
+        if (formFeedback) {
+          formFeedback.className = 'form-feedback error';
+          formFeedback.innerHTML = `
+            <div>EmailJS configuration not loaded.</div>
+            <div class="fallback-action-wrap">
+              <a href="${mailtoUrl}" class="btn btn-sm btn-primary">
+                <i class="fa-solid fa-paper-plane"></i> Send via Email Client
+              </a>
+            </div>
+          `;
+        }
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Send Message</span> <i class="fa-solid fa-arrow-right"></i>';
+        }
       }
     });
   }
