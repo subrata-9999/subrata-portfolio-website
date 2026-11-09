@@ -1,633 +1,710 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subrata Pramanik</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/8fcbe63841.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/animate.css">
-
-
-  <!--tab icon-->
-  <link rel="icon" href="media/web_icon.png" />
-
-  <!--nam-brand-->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subrata Pramanik | Software Engineer & Backend Specialist</title>
+  <meta name="description" content="Portfolio of Subrata Pramanik - Software Engineer specializing in Multi-Tenant SaaS, Payment & Logistics Integrations, and Scalable Backend Systems." />
+  
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-
-  <!--front-des-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
-
-  <!--name-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik+Marker+Hatch&display=swap" rel="stylesheet">
-
-  <!--about me-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-
-  <!--element heading-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni&display=swap" rel="stylesheet">
-
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
-
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="media/web_icon.png" />
+  
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <link rel="stylesheet" href="style.css" />
 </head>
+<body>
+  <!-- Ambient Gradient Background Lights -->
+  <div class="ambient-glow glow-top-left"></div>
+  <div class="ambient-glow glow-bottom-right"></div>
 
-<body onload="loading_function()">
-
-  <div id="pre-loader"></div>
-
-  <!--nav bar...............................................................................................................-->
-  <nav class="navbar navbar-expand-lg navbar-dark my-nav">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#top">
-        <span class="brand-font"><i class="fa-solid fa-user-tie"></i></span>
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="brand-logo">
+        <span class="logo-accent">&lt;</span>Subrata<span class="logo-accent">/&gt;</span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="fa-solid fa-bars" style="color: #F806CC;"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-item_link" href="#about"><span class="my-nav-option">About</span></a></li>
 
-          <li class="nav-item"><a class="nav-item_link" href="#skill"><span class="my-nav-option">Skills</span></a></li>
-          <li class="nav-item"><a class="nav-item_link" href="#exprience"><span
-                class="my-nav-option">Exprience</span></a></li>
-          <li class="nav-item"><a class="nav-item_link" href="#project"><span class="my-nav-option">Projects</span></a>
-          </li>
-          <li class="nav-item"><a class="nav-item_link" href="#education"><span
-                class="my-nav-option">Education</span></a></li>
-          <li class="nav-item"><a class="nav-item_link" href="#contact"><span class="my-nav-option">Contact</span></a>
-          </li>
-        </ul>
+      <nav class="nav-menu" id="navMenu">
+        <a href="#about" class="nav-item">About</a>
+        <a href="#experience" class="nav-item">Experience</a>
+        <a href="#skills" class="nav-item">Skills</a>
+        <a href="#projects" class="nav-item">Projects</a>
+        <a href="#education" class="nav-item">Education</a>
+        <a href="#contact" class="nav-item">Contact</a>
+      </nav>
+
+      <div class="nav-cta-group">
+        <a href="resume/Subrata_Pramanik_resume.pdf" class="btn btn-sm btn-outline" download>
+          <i class="fa-solid fa-file-arrow-down"></i> Resume
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
       </div>
     </div>
-  </nav>
+  </header>
 
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="container hero-inner">
+        <div class="hero-avatar-wrapper">
+          <img src="media/my_pic.jpg" alt="Subrata Pramanik" class="hero-avatar" />
+          <div class="avatar-glow"></div>
+        </div>
 
-  <div><a name="top"></a></div>
+        <div class="status-badge">
+          <span class="pulse-indicator"></span> Software Engineer • Full Stack Developer
+        </div>
 
-  <!--front section.......................................................................................-->
-  <a name="top_area"></a>
-  <div class="top_area_pc"><br><br><br></div>
+        <h1 class="hero-heading">
+          Building Scalable Software, <br/>
+          <span class="gradient-text">Clean APIs & Digital Solutions</span>
+        </h1>
 
-  <section class="front-section">
-    <div class="front-wrapper">
-
-      <div class="front-left">
-        <h4 class="hey_i_am">Hey, I'm</h4>
-        <h1 class="my-name">Subrata Pramanik</h1>
-
-        <h2 class="i-am">I'm a
-          <span class="animation-content"></span>
-        </h2>
-
-        <p class="front-des">
-          Self-driven, quick starter, passionate programmer with a curious mind.
+        <p class="hero-subtext">
+          Hi, I'm <strong>Subrata Pramanik</strong>. A passionate Software Engineer with a deep curiosity for building high-performance web applications, resilient backend architectures, and elegant problem-solving code.
         </p>
 
-        <div class="btn-group">
-          <a href="#contact" class="btn primary-btn">Contact</a>
-          <a href="https://drive.google.com/file/d/1XAdb1C74uxtqe0col9NPPvaUIS2pXbHh/view?usp=sharing"
-            class="btn outline-btn" download>
-            Resume
+        <div class="hero-actions">
+          <a href="#experience" class="btn btn-primary">
+            <i class="fa-solid fa-briefcase"></i> View Experience
           </a>
-        </div>
-      </div>
-
-      <div class="front-right">
-        <img class="hero-img" src="media/my_pic.jpg">
-      </div>
-      <br><br><br><br>
-      <div>
-        <a name="about"></a>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!--about-section ...........................................................................................-->
-  <section id="about" class="about-section">
-    <div class="wrapper">
-
-      <h1 class="about-heading">ABOUT</h1>
-
-      <p class="about-text">
-        Hi, I'm Subrata Pramanik, a Web Developer specializing in Laravel, CodeIgniter, and MySQL. I build scalable web
-        applications, write backend code and APIs, and solve practical problems through code.</p>
-      <p class="about-text">
-
-        I’ve worked on projects like multi-tenancy SaaS platform, e-commerce web application, and admin dashboards. I focus on writing
-        maintainable code, structured database logic, business logic, and secure authentication workflows. I also work with AJAX,
-        JavaScript, Bootstrap, and APIs to make applications reliable and easy to use.</p>
-      <p class="about-text">
-
-        I enjoy exploring new technologies and applying them to real projects. Currently, I’m learning Python and
-        FastAPI to expand my backend development skills and grow toward full-stack development. In my free time, I enjoy
-        photography.
-        <a href="https://www.instagram.com/_naturesgraphy_/" target="_blank" class="about-insta-icon">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-      </p>
-
-      <ul class="about-icon-container">
-        <li>
-          <a href="https://www.linkedin.com/in/subrata-pramanik-bab082220/" target="_blank" class="about-icon">
-            <i class="fa-brands fa-linkedin-in"></i>
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/subrata-9999" target="_blank" class="about-icon">
-            <i class="fa-brands fa-github"></i>
-          </a>
-        </li>
-      </ul>
-      <div class="skill-connector">
-        <a name="skill"></a>
-      </div>
-
-    </div>
-  </section>
-
-
-
-  <!--skills section...........................................................................-->
-
-  <section id="skills" class="skills-section">
-    <div class="wrapper">
-      <h1 class="skill-heading">SKILLS</h1>
-
-      <div class="skill-container">
-
-        <div style="display: none;" class="skill-card">
-          <img src="media/cpic.png" class="skill-pic" alt="C logo">
-          <h2 class="skill-name">C</h2>
-        </div>
-
-        <div class="skill-card">
-          <img src="media/c++pic.png" class="skill-pic" alt="C++ logo">
-          <h2 class="skill-name">C++</h2>
-        </div>
-
-        <div class="skill-card">
-          <img src="media/javapic.png" class="skill-pic" alt="Java logo">
-          <h2 class="skill-name">Java</h2>
-        </div>
-
-        <div class="skill-card">
-          <img src="media/htmlpic.png" class="skill-pic" alt="HTML logo">
-          <h2 class="skill-name">HTML</h2>
-        </div>
-
-        <div class="skill-card">
-          <img src="media/csspic.png" class="skill-pic" alt="CSS logo">
-          <h2 class="skill-name">CSS</h2>
-        </div>
-
-        <div class="skill-card">
-          <img src="media/jspic.png" class="skill-pic" alt="JavaScript logo">
-          <h2 class="skill-name">JavaScript</h2>
-        </div>
-
-        <div class="skill-card">
-          <img src="media/bootstrap5pic.png" class="skill-pic" alt="Bootstrap logo">
-          <h2 class="skill-name">Bootstrap</h2>
-        </div>
-
-        <div class="skill-card">
-          <img src="media/php.png" class="skill-pic" alt="PHP logo">
-          <h2 class="skill-name">PHP</h2>
-        </div>
-
-        <div class="skill-card">
-          <img src="media/MySQL.png" class="skill-pic" alt="MySQL logo">
-          <h2 class="skill-name">MySQL</h2>
-        </div>
-
-        <div class="skill-card">
-          <img src="media/laravel.webp" class="skill-pic" alt="Laravel logo">
-          <h2 class="skill-name">Laravel</h2>
-        </div>
-
-        <div class="skill-card">
-          <img src="media/CodeIgniter.png" class="skill-pic" alt="CodeIgniter logo">
-          <h2 class="skill-name">CodeIgniter</h2>
-        </div>
-
-      </div>
-      <div>
-        <a name="exprience"></a>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Exprience Section .....................................................................-->
-
-  <section class="experience-section">
-    <h1 class="experience-heading">- EXPERIENCE -</h1>
-    <hr class="exp-hr">
-
-    <div class="exp-timeline">
-
-      <div class="d-none exp-timeline-item">
-        <div class="exp-timeline-icon"><i class="fa-solid fa-briefcase"></i></div>
-        <div class="exp-timeline-content">
-          <h3>Junior PHP Developer</h3>
-          <h4>Encoders Technology Pvt Ltd</h4>
-          <p>Full-time | Sep 2024 - Present</p>
-        </div>
-      </div>
-
-      <div class="exp-timeline-item">
-        <div class="exp-timeline-icon"><i class="fa-solid fa-briefcase"></i></div>
-        <div class="exp-timeline-content">
-          <h3>Intern</h3>
-          <h4>Bytefield LLP</h4>
-          <p>Internship | Mar 2024 - Jun 2024</p>
-        </div>
-      </div>
-
-      <div class="exp-timeline-item">
-        <div class="exp-timeline-icon"><i class="fa-solid fa-briefcase"></i></div>
-        <div class="exp-timeline-content">
-          <h3>PHP Developer Intern</h3>
-          <h4>Learning Session</h4>
-          <p>Internship | Dec 2023 - Feb 2024</p>
-        </div>
-      </div>
-      <div>
-        <a name="project"></a>
-      </div>
-
-    </div>
-  </section>
-
-
-
-
-
-
-  <!--project section.............................................................................-->
-
-  <section id="projects" class="project-section">
-    <div class="wrapper">
-
-      <h1 class="project-heading">PROJECTS</h1>
-
-      <div class="project-grid">
-
-        <div class="project-card">
-          <img src="media/chat_app.png" class="project-pic" alt="Chat App Preview">
-          <h2 class="project-title">Chat Application</h2>
-          <p class="project-desc">
-            A responsive, real-time one-on-one chat app built using Laravel Breeze for authentication,
-            Pusher + Laravel Echo for live messaging, and MySQL for data storage.
-          </p>
-          <a href="https://github.com/subrata-9999/Laravel-Chat-Application" class="project-link" target="_blank">
-            <i class="fa-brands fa-github"></i>
+          <a href="#contact" class="btn btn-glass">
+            <i class="fa-regular fa-paper-plane"></i> Get In Touch
           </a>
         </div>
 
-        <div class="project-card">
-          <img src="media/mapify.png" class="project-pic" alt="Mapify App">
-          <h2 class="project-title">MAPIFY</h2>
-          <p class="project-desc">
-            A Leaflet.js powered map application using JavaScript Geolocation API with real-time location
-            visualization for tracking & exploring maps.
-          </p>
-          <a href="https://subrata-9999.github.io/mapify/" class="project-link" target="_blank">
-            <i class="fa-solid fa-up-right-from-square"></i>
+        <!-- Social & Contact Quick Links -->
+        <div class="quick-links">
+          <a href="https://github.com/subrata-9999" target="_blank" rel="noopener" class="quick-link-pill" title="GitHub">
+            <i class="fa-brands fa-github"></i> <span>github/subrata-9999</span>
+          </a>
+          <a href="https://linkedin.com/in/subrata-pramanik-bab082220" target="_blank" rel="noopener" class="quick-link-pill" title="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i> <span>LinkedIn Profile</span>
+          </a>
+          <a href="mailto:subrataparam7@gmail.com" class="quick-link-pill" title="Email">
+            <i class="fa-solid fa-envelope"></i> <span>subrataparam7@gmail.com</span>
           </a>
         </div>
-
-        <div class="project-card">
-          <img src="media/Binarytree_operator_first.png" class="project-pic" alt="BinaryTree Operator">
-          <h2 class="project-title">BinaryTree Operator</h2>
-          <p class="project-desc">
-            A console program implementing full Binary Tree operations and traversal logic using Data Structures & C++.
-          </p>
-          <a href="https://github.com/subrata-9999/BinaryTree_Operator" class="project-link" target="_blank">
-            <i class="fa-brands fa-github"></i>
-          </a>
-        </div>
-
       </div>
-      <div>
-        <a name="education"></a>
-      </div>
+    </section>
 
-    </div>
-  </section>
-
-
-  <!--Eaducation section.....................................................................-->
-
-  <section class="education-section">
-    <h1 class="education-heading">- EDUCATION -</h1>
-    <hr class="edu-hr">
-
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="timeline-icon"><i class="fa-solid fa-school"></i></div>
-        <div class="timeline-content">
-          <a href="https://www.facebook.com/p/Katwa-Bharati-Bhaban-High-School-100080048209258/">
-            <h3>Schooling (10th & 12th)</h3>
-          </a>
-          <p>
-            Katwa Bharati Bhaban Higher Secondary School, Katwa, Purba Bardhaman, West Bengal.<br>
-            <strong>10th:</strong> 84.7% | <strong>12th:</strong> 90.4%
-          </p>
+    <!-- Key Metrics Ribbon -->
+    <section class="metrics-ribbon">
+      <div class="container">
+        <div class="metrics-grid">
+          <div class="metric-card glass-card">
+            <div class="metric-icon"><i class="fa-solid fa-code"></i></div>
+            <div class="metric-info">
+              <span class="metric-value">Full Stack & APIs</span>
+              <span class="metric-label">Scalable Web Architecture</span>
+            </div>
+          </div>
+          <div class="metric-card glass-card">
+            <div class="metric-icon"><i class="fa-solid fa-code-compare"></i></div>
+            <div class="metric-info">
+              <span class="metric-value">150+ Problems</span>
+              <span class="metric-label">Solved on GeeksforGeeks</span>
+            </div>
+          </div>
+          <div class="metric-card glass-card">
+            <div class="metric-icon"><i class="fa-solid fa-star"></i></div>
+            <div class="metric-info">
+              <span class="metric-value">5-Star ★</span>
+              <span class="metric-label">HackerRank Certified</span>
+            </div>
+          </div>
+          <div class="metric-card glass-card">
+            <div class="metric-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="metric-info">
+              <span class="metric-value">8.14 CGPA</span>
+              <span class="metric-label">B.Tech in Computer Science</span>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="timeline-item">
-        <div class="timeline-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-        <div class="timeline-content">
-          <a href="http://www.gcettb.ac.in/">
-            <h3>College (2020 - 2024)</h3>
-          </a>
-          <p>
-            B.Tech in Mechanical Engineering at Government College of Engineering & Textile Technology, Berhampore.<br>
-            <strong>CGPA:</strong> 8.14
-          </p>
+    <!-- About Section -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-eyebrow">Professional Background</span>
+          <h2 class="section-heading">About Me</h2>
         </div>
-        <div>
-          <a name="contact"></a>
+
+        <div class="about-card glass-card">
+          <div class="about-content">
+            <p>
+              I am a self-driven, passionate <strong>Software Engineer</strong> with a curious mind and a relentless drive to build high-quality software. I love writing clean, maintainable backend code, designing scalable database architectures, and engineering smooth, intuitive user interfaces.
+            </p>
+            <p>
+              Throughout my professional journey, I've engineered multi-tenant SaaS platforms, full-stack e-commerce solutions, and real-time communication tools using <strong>PHP (Laravel 10, CodeIgniter), Node.js, Express, and Python/FastAPI</strong>. I thrive on translating complex business workflows into simple, robust code.
+            </p>
+            <p>
+              Beyond development, I enjoy challenging myself with Data Structures and Algorithms (150+ problems solved on GeeksforGeeks, 5★ on HackerRank). When I'm away from the keyboard, you'll often find me exploring nature through photography (<a href="https://www.instagram.com/_naturesgraphy_/" target="_blank" rel="noopener" class="inline-link"><i class="fa-brands fa-instagram"></i> @_naturesgraphy_</a>).
+            </p>
+          </div>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-eyebrow">Career Milestones</span>
+          <h2 class="section-heading">Professional Experience</h2>
+        </div>
 
+        <div class="experience-timeline">
+          <!-- Paramantra -->
+          <div class="timeline-block">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card glass-card">
+              <div class="role-header">
+                <div>
+                  <h3 class="company-name">Paramantra</h3>
+                  <h4 class="job-role">Software Engineer</h4>
+                </div>
+                <span class="job-period"><i class="fa-regular fa-calendar"></i> 03/2026 – Present</span>
+              </div>
 
+              <div class="work-modules">
+                <!-- Module 1 -->
+                <div class="module-box">
+                  <div class="module-title">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <strong>Payment Integration (Multi-Tenant)</strong>
+                    <span class="tech-chip-sm">Razorpay • Cashfree • Webhooks • REST API</span>
+                  </div>
+                  <ul class="module-bullets">
+                    <li>Built a multi-tenant payment module supporting multiple gateways (Razorpay, Cashfree) on a single platform with per-tenant credentials and customizable checkout flows.</li>
+                    <li>Engineered robust order creation, payment verification, and webhook processors with status mapping to synchronize order/payment statuses inside the CRM.</li>
+                  </ul>
+                </div>
 
+                <!-- Module 2 -->
+                <div class="module-box">
+                  <div class="module-title">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <strong>Telegram Calling & VoIP Server</strong>
+                    <span class="tech-chip-sm">Node.js • Express • NTgCalls • WebSocket (ws) • Auth</span>
+                  </div>
+                  <ul class="module-bullets">
+                    <li>Developed a Node.js-Express bridge server using <code>NTgCalls</code> and WebSocket (<code>ws</code>) to initiate and manage live Telegram calls for CRM users.</li>
+                    <li>Designed an isolated multi-tenant authentication architecture supporting concurrent Telegram numbers with independent sessions.</li>
+                  </ul>
+                </div>
 
+                <!-- Module 3 -->
+                <div class="module-box">
+                  <div class="module-title">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <strong>Logistics & Shipping Centralization</strong>
+                    <span class="tech-chip-sm">CodeIgniter 2 • Webhooks • REST API</span>
+                  </div>
+                  <ul class="module-bullets">
+                    <li>Managed a unified multi-carrier logistics module allowing vendors to utilize <strong>Shiprocket, Delhivery, and FedEx</strong> from one interface, including pickup locations.</li>
+                    <li>Automated order creation, courier selection algorithms, AWB generation, and tracking; utilized webhooks to reflect real-time lead and delivery updates in the CRM.</li>
+                  </ul>
+                </div>
 
+                <!-- Module 4 -->
+                <div class="module-box">
+                  <div class="module-title">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                    <strong>CRM Integrations & Customizations</strong>
+                    <span class="tech-chip-sm">PHP • CodeIgniter 2 • MySQL • OAuth 2.0 • SendGrid</span>
+                  </div>
+                  <ul class="module-bullets">
+                    <li><strong>QuickBooks:</strong> Implemented OAuth 2.0 REST API integration enabling bidirectional synchronization of Customers, Products, Estimates, Invoices, and Payments with multi-currency support.</li>
+                    <li><strong>SendGrid Email Campaigns:</strong> Automated transactional & marketing email campaigns to leads with full webhook tracking (opens, clicks, bounces, unsubscribes) logged into the CRM.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
 
+          <!-- Encoders -->
+          <div class="timeline-block">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card glass-card">
+              <div class="role-header">
+                <div>
+                  <h3 class="company-name">Encoders</h3>
+                  <h4 class="job-role">Web Developer</h4>
+                </div>
+                <span class="job-period"><i class="fa-regular fa-calendar"></i> 09/2024 – 02/2026</span>
+              </div>
 
-  <!-- contact section ......................................................................-->
+              <div class="work-modules">
+                <!-- Project-k -->
+                <div class="module-box">
+                  <div class="module-title">
+                    <i class="fa-solid fa-building-user"></i>
+                    <strong>Project-k (Multi-Tenant SaaS Application)</strong>
+                    <span class="tech-chip-sm">PHP • Laravel 10 • MySQL • Firebase</span>
+                  </div>
+                  <ul class="module-bullets">
+                    <li>Contributed to an extensive enterprise SaaS application following MVC principles across ~12 business modules.</li>
+                    <li>Engineered features for the Diary module (team permissions, comment workflows, employee tagging, role-based controls) and integrated a real-time team chat system powered by Firebase.</li>
+                  </ul>
+                </div>
 
-  <section class="contact-section">
-    <div>
-      <center>
-        <h1 class="contact-heading">-CONTACT-</h1>
-      </center>
-    </div>
-
-    <div class="contact-container">
-
-      <div class="contact-button-container animate__animated animate__zoomIn wow">
-        <a href="mailto:subrataparam7@gmail.com" class="contact-icon contact-icon-mail">
-          <li><i class="fa-solid fa-envelope"></i></li>
-        </a>
-        <a href="https://wa.me/<+918346819246?text=Hello!" class="contact-icon contact-icon-wp" target="_blank">
-          <li><i class="fa-brands fa-whatsapp"></i></li>
-        </a>
-        <a href="https://telegram.me/sub_r_ata" class="contact-icon contact-icon-tele">
-          <li><i class="fa-brands fa-telegram"></i></li>
-        </a>
+                <!-- TyreSasta -->
+                <div class="module-box">
+                  <div class="module-title">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <strong>TyreSasta (Full-Stack E-Commerce Web App)</strong>
+                    <span class="tech-chip-sm">CodeIgniter 4 • MySQL • Razorpay • WhatsApp</span>
+                  </div>
+                  <ul class="module-bullets">
+                    <li>Engineered an e-commerce platform with multi-level faceted product filtering (brand, size, category, discount, price), cart logic, GST auto-calculation, and promo code verification.</li>
+                    <li>Created an end-to-end admin portal managing 5+ categories of inventory, automated billing/shipping calculations, invoice PDF generation, and WhatsApp notifications.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="line-contact">
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-eyebrow">Technical Arsenal</span>
+          <h2 class="section-heading">Skills & Tooling</h2>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Backend -->
+          <div class="skill-category glass-card">
+            <div class="skill-icon-header">
+              <i class="fa-solid fa-server"></i>
+              <h3>Backend Engineering</h3>
+            </div>
+            <div class="tags-container">
+              <span class="tag">PHP</span>
+              <span class="tag">Laravel 10</span>
+              <span class="tag">CodeIgniter 2 / 4</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">Express.js</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">RESTful APIs</span>
+              <span class="tag">WebSocket (ws)</span>
+              <span class="tag">MVC Architecture</span>
+            </div>
+          </div>
+
+          <!-- Integrations -->
+          <div class="skill-category glass-card">
+            <div class="skill-icon-header">
+              <i class="fa-solid fa-network-wired"></i>
+              <h3>APIs & Integrations</h3>
+            </div>
+            <div class="tags-container">
+              <span class="tag highlight-tag">Razorpay</span>
+              <span class="tag highlight-tag">Cashfree</span>
+              <span class="tag highlight-tag">QuickBooks (OAuth 2.0)</span>
+              <span class="tag">SendGrid</span>
+              <span class="tag">Shiprocket</span>
+              <span class="tag">Delhivery</span>
+              <span class="tag">FedEx</span>
+              <span class="tag">Webhooks</span>
+              <span class="tag">NTgCalls (Telegram)</span>
+              <span class="tag">WhatsApp API</span>
+            </div>
+          </div>
+
+          <!-- Database -->
+          <div class="skill-category glass-card">
+            <div class="skill-icon-header">
+              <i class="fa-solid fa-database"></i>
+              <h3>Databases & Realtime</h3>
+            </div>
+            <div class="tags-container">
+              <span class="tag">MySQL</span>
+              <span class="tag">Firebase Firestore</span>
+              <span class="tag">Firebase Realtime DB</span>
+              <span class="tag">Database Design</span>
+              <span class="tag">Query Optimization</span>
+            </div>
+          </div>
+
+          <!-- Frontend -->
+          <div class="skill-category glass-card">
+            <div class="skill-icon-header">
+              <i class="fa-solid fa-code"></i>
+              <h3>Frontend & UI</h3>
+            </div>
+            <div class="tags-container">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript (ES6+)</span>
+              <span class="tag">jQuery</span>
+              <span class="tag">AJAX</span>
+              <span class="tag">Blade Templates</span>
+              <span class="tag">Responsive Web Design</span>
+            </div>
+          </div>
+
+          <!-- Languages -->
+          <div class="skill-category glass-card">
+            <div class="skill-icon-header">
+              <i class="fa-solid fa-terminal"></i>
+              <h3>Programming Languages</h3>
+            </div>
+            <div class="tags-container">
+              <span class="tag">PHP</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Python</span>
+              <span class="tag">C++</span>
+              <span class="tag">SQL</span>
+            </div>
+          </div>
+
+          <!-- Tools & DevOps -->
+          <div class="skill-category glass-card">
+            <div class="skill-icon-header">
+              <i class="fa-solid fa-wrench"></i>
+              <h3>Tools & Ecosystem</h3>
+            </div>
+            <div class="tags-container">
+              <span class="tag">Git & GitHub</span>
+              <span class="tag">Postman</span>
+              <span class="tag">FileZilla</span>
+              <span class="tag">cPanel</span>
+              <span class="tag">SMTP</span>
+              <span class="tag">mPDF</span>
+              <span class="tag">ChatGPT / AI Tools</span>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="box animate__animated animate__zoomIn wow">
-        <li class="send-direct-messege">send-direct-messege</li>
-        <form id="form">
-          <input type="text" name="name" id="user_name" placeholder="Enter your name" required><br>
-          <input type="email" name="email" id="mail_id" placeholder="Enter your email" required><br>
-          <textarea name="msg" id="message_body" cols="30" rows="5" placeholder="  Enter the message"
-            required></textarea>
-          <button type="submit" class="btn_c"><span class="btn-text">Send</span></button>
-        </form>
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-eyebrow">Personal & Open-Source Work</span>
+          <h2 class="section-heading">Featured Projects</h2>
+          <p class="section-lead">A collection of personal projects and applications I have engineered to explore new technologies and solve practical problems.</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: URL Shortener -->
+          <div class="project-card glass-card">
+            <div class="project-top">
+              <span class="project-badge"><i class="fa-solid fa-bolt"></i> Backend API</span>
+              <span class="project-time">11/2025 – 12/2025</span>
+            </div>
+            <h3 class="project-name">FastAPI URL Shortener & Anti-Abuse System</h3>
+            <p class="project-description">
+              High-performance URL Shortener service built with <strong>FastAPI</strong> and <strong>MySQL</strong>. Features secure CRUD endpoints, user registration with email verification, and an innovative <strong>Device-ID based restriction mechanism</strong> to prevent spam and duplicate account generation on the same device.
+            </p>
+            <div class="project-tech-stack">
+              <span>FastAPI</span>
+              <span>Python</span>
+              <span>MySQL</span>
+              <span>Email Auth</span>
+              <span>Device-ID Tracking</span>
+            </div>
+          </div>
+
+          <!-- Project 2: Laravel Chat App -->
+          <div class="project-card glass-card">
+            <div class="project-thumb-box">
+              <img src="media/chat_app.png" alt="Laravel Chat App" class="project-thumb-img" />
+            </div>
+            <div class="project-top">
+              <span class="project-badge"><i class="fa-solid fa-comments"></i> Real-Time Chat</span>
+              <div class="project-actions">
+                <a href="https://github.com/subrata-9999/Laravel-Chat-Application" target="_blank" rel="noopener" class="icon-action-btn" title="View Source on GitHub">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-name">Real-Time Chat Application</h3>
+            <p class="project-description">
+              A responsive, live one-on-one messaging web application built with <strong>Laravel Breeze</strong> for user authentication, <strong>Pusher + Laravel Echo</strong> for instant event broadcasting over WebSockets, and <strong>MySQL</strong> for persistent chat history.
+            </p>
+            <div class="project-tech-stack">
+              <span>Laravel</span>
+              <span>PHP</span>
+              <span>Pusher</span>
+              <span>Laravel Echo</span>
+              <span>WebSockets</span>
+              <span>MySQL</span>
+            </div>
+          </div>
+
+          <!-- Project 3: Mapify -->
+          <div class="project-card glass-card">
+            <div class="project-thumb-box">
+              <img src="media/mapify.png" alt="MAPIFY Geolocation App" class="project-thumb-img" />
+            </div>
+            <div class="project-top">
+              <span class="project-badge"><i class="fa-solid fa-map-location-dot"></i> Interactive Map</span>
+              <div class="project-actions">
+                <a href="https://subrata-9999.github.io/mapify/" target="_blank" rel="noopener" class="icon-action-btn" title="View Live App">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-name">MAPIFY - Geolocation Tracker</h3>
+            <p class="project-description">
+              An interactive map platform built with <strong>Leaflet.js</strong> and the <strong>HTML5 Geolocation API</strong>. Enables real-time user location visualization, custom route navigation, and pin annotations for exploring geographical spots.
+            </p>
+            <div class="project-tech-stack">
+              <span>JavaScript</span>
+              <span>Leaflet.js</span>
+              <span>HTML5 Geolocation</span>
+              <span>CSS3</span>
+            </div>
+          </div>
+
+          <!-- Project 4: BinaryTree Operator -->
+          <div class="project-card glass-card">
+            <div class="project-thumb-box">
+              <img src="media/Binarytree_operator_first.png" alt="BinaryTree Operator Console App" class="project-thumb-img" />
+            </div>
+            <div class="project-top">
+              <span class="project-badge"><i class="fa-solid fa-network-wired"></i> Data Structures</span>
+              <div class="project-actions">
+                <a href="https://github.com/subrata-9999/BinaryTree_Operator" target="_blank" rel="noopener" class="icon-action-btn" title="View Source on GitHub">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-name">BinaryTree Operator</h3>
+            <p class="project-description">
+              An algorithm simulation engine written in <strong>C++</strong> implementing comprehensive Binary Search Tree (BST) operations, depth/breadth-first traversals (Inorder, Preorder, Postorder, Level-order), and node manipulations with performance optimizations.
+            </p>
+            <div class="project-tech-stack">
+              <span>C++</span>
+              <span>Data Structures</span>
+              <span>Algorithms</span>
+              <span>BST</span>
+            </div>
+          </div>
+
+          <!-- Project 5: Developer Portfolio -->
+          <div class="project-card glass-card">
+            <div class="project-top">
+              <span class="project-badge"><i class="fa-solid fa-palette"></i> Frontend & UI</span>
+              <span class="project-time">11/2022 – Present</span>
+            </div>
+            <h3 class="project-name">Interactive Developer Portfolio</h3>
+            <p class="project-description">
+              This fast, responsive personal portfolio website engineered with clean semantic <strong>HTML5, modern CSS Glassmorphism, and vanilla JavaScript</strong>. Features direct interactive mailing via <strong>EmailJS</strong> and dynamic responsive components.
+            </p>
+            <div class="project-tech-stack">
+              <span>HTML5</span>
+              <span>CSS3 Glassmorphism</span>
+              <span>JavaScript</span>
+              <span>EmailJS API</span>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-    </div>
+    <!-- Education & Coding Profiles Section -->
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-eyebrow">Academics & Competitive Programming</span>
+          <h2 class="section-heading">Education & Profiles</h2>
+        </div>
 
-  </section>
+        <div class="two-column-grid">
+          <!-- Education Card -->
+          <div class="glass-card info-panel">
+            <div class="panel-header">
+              <i class="fa-solid fa-graduation-cap panel-icon"></i>
+              <div>
+                <h3>Bachelor of Technology (B.Tech)</h3>
+                <span class="sub-text">Computer Science & Engineering</span>
+              </div>
+            </div>
+            <div class="panel-body">
+              <p class="institution-name">Government College of Engineering & Textile Technology, Berhampore</p>
+              <div class="meta-row">
+                <span><i class="fa-regular fa-calendar"></i> 2020 – 2024</span>
+                <span class="badge-accent">CGPA: 8.14 / 10</span>
+              </div>
+              <p class="desc-text">
+                Relevant Coursework: Data Structures & Algorithms, Object-Oriented Programming, Database Management Systems (DBMS), Operating Systems, Computer Networks.
+              </p>
+            </div>
+          </div>
 
+          <!-- Profiles Card -->
+          <div class="glass-card info-panel">
+            <div class="panel-header">
+              <i class="fa-solid fa-trophy panel-icon"></i>
+              <div>
+                <h3>Coding Profiles & Benchmarks</h3>
+                <span class="sub-text">Continuous Learning & Problem Solving</span>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div class="profile-items">
+                <a href="https://auth.geeksforgeeks.org/" target="_blank" rel="noopener" class="profile-row">
+                  <div class="profile-left">
+                    <i class="fa-solid fa-code profile-row-icon"></i>
+                    <div>
+                      <strong>GeeksforGeeks</strong>
+                      <p>Data Structures & Problem Solving</p>
+                    </div>
+                  </div>
+                  <span class="profile-stat">150+ Solved</span>
+                </a>
 
+                <a href="https://www.hackerrank.com/" target="_blank" rel="noopener" class="profile-row">
+                  <div class="profile-left">
+                    <i class="fa-brands fa-hackerrank profile-row-icon"></i>
+                    <div>
+                      <strong>HackerRank</strong>
+                      <p>Problem Solving & Algorithms</p>
+                    </div>
+                  </div>
+                  <span class="profile-stat">5★ Rating</span>
+                </a>
 
-  <footer>
+                <a href="https://github.com/subrata-9999" target="_blank" rel="noopener" class="profile-row">
+                  <div class="profile-left">
+                    <i class="fa-brands fa-github profile-row-icon"></i>
+                    <div>
+                      <strong>GitHub</strong>
+                      <p>github.com/subrata-9999</p>
+                    </div>
+                  </div>
+                  <span class="profile-stat">Actively Maintained</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="footer-icons">
-      <a href="tel:+919883221097" class="footer-icon">
-        <li><i class="fa-solid fa-phone"></i></li>
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="section-eyebrow">Get In Touch</span>
+          <h2 class="section-heading">Contact Me</h2>
+          <p class="section-lead">Have an opportunity, a project to collaborate on, or want to discuss architecture? Feel free to reach out directly.</p>
+        </div>
+
+        <div class="contact-card-grid">
+          <!-- Email Box -->
+          <div class="contact-box glass-card">
+            <i class="fa-solid fa-envelope contact-box-icon"></i>
+            <h4>Email</h4>
+            <p>subrataparam7@gmail.com</p>
+            <div class="btn-group-sm">
+              <a href="mailto:subrataparam7@gmail.com" class="btn btn-sm btn-primary">Send Email</a>
+              <button class="btn btn-sm btn-glass copy-btn" data-copy="subrataparam7@gmail.com">
+                <i class="fa-regular fa-copy"></i> Copy
+              </button>
+            </div>
+          </div>
+
+          <!-- Phone Box -->
+          <div class="contact-box glass-card">
+            <i class="fa-solid fa-phone contact-box-icon"></i>
+            <h4>Phone</h4>
+            <p>+91-9883221097</p>
+            <div class="btn-group-sm">
+              <a href="tel:+919883221097" class="btn btn-sm btn-primary">Call</a>
+              <button class="btn btn-sm btn-glass copy-btn" data-copy="+919883221097">
+                <i class="fa-regular fa-copy"></i> Copy
+              </button>
+            </div>
+          </div>
+
+          <!-- LinkedIn Box -->
+          <div class="contact-box glass-card">
+            <i class="fa-brands fa-linkedin-in contact-box-icon"></i>
+            <h4>LinkedIn</h4>
+            <p>Subrata Pramanik</p>
+            <a href="https://linkedin.com/in/subrata-pramanik-bab082220" target="_blank" rel="noopener" class="btn btn-sm btn-glass">
+              Connect <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+
+          <!-- GitHub Box -->
+          <div class="contact-box glass-card">
+            <i class="fa-brands fa-github contact-box-icon"></i>
+            <h4>GitHub</h4>
+            <p>@subrata-9999</p>
+            <a href="https://github.com/subrata-9999" target="_blank" rel="noopener" class="btn btn-sm btn-glass">
+              Follow <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Interactive Direct Message Form -->
+        <div class="contact-form-wrapper glass-card">
+          <div class="form-intro">
+            <h3><i class="fa-solid fa-paper-plane"></i> Send Me a Direct Message</h3>
+            <p>Whether you want to discuss a new project, an engineering role, or just say hi, drop a note below!</p>
+          </div>
+          <form id="contactForm" class="contact-form">
+            <div class="form-row">
+              <div class="input-field">
+                <label for="userName">Your Name</label>
+                <input type="text" id="userName" name="name" placeholder="John Doe" required />
+              </div>
+              <div class="input-field">
+                <label for="userEmail">Your Email</label>
+                <input type="email" id="userEmail" name="email" placeholder="john@example.com" required />
+              </div>
+            </div>
+            <div class="input-field">
+              <label for="userMessage">Message</label>
+              <textarea id="userMessage" name="message" rows="4" placeholder="Hi Subrata, I'd like to talk about..." required></textarea>
+            </div>
+            <button type="submit" id="submitBtn" class="btn btn-primary submit-btn">
+              <span>Send Message</span> <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <div id="formFeedback" class="form-feedback"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="currentYear"></span> Subrata Pramanik. Built for high performance.</p>
+      <a href="#home" class="scroll-top-btn" aria-label="Back to Top">
+        <i class="fa-solid fa-arrow-up"></i>
       </a>
-      <a href="mailto:subrataparam7@gmail.com" class="footer-icon" target="_blank">
-        <li><i class="fa-regular fa-envelope"></i></li>
-      </a>
-      <a href="https://www.linkedin.com/in/subrata-pramanik-bab082220/" class="footer-icon">
-        <li><i class="fa-brands fa-linkedin-in"></i></li>
-      </a>
-      <a href="https://www.facebook.com/profile.php?id=100037606600701" class="footer-icon">
-        <li><i class="fa-brands fa-facebook-f"></i></li>
-      </a>
-      <a href="https://www.instagram.com/s.u.b.r.a.t.a_9884/" class="footer-icon" target="_blank">
-        <li><i class="fa-brands fa-instagram"></i></li>
-      </a>
-    </div>
-    <ul class="footer-icons" style="margin-top: 10px;">
-      <a href="#top_area" style="text-decoration: none;"><i class="fa-solid fa-angle-up climb-up"></i></a>
-    </ul>
-    <li style="color: white;">SUBRATA PRAMANIK</li>
-    <div class="footer-copyright">
-      <p>Copyright @ 2023 All Rights Reserved.</p>
     </div>
   </footer>
 
+  <!-- Toast Notification for Copy -->
+  <div class="toast" id="toast">Copied to clipboard!</div>
 
-  <!-- <script src="https://smtpjs.com/v3/smtp.js"> -->
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+  <!-- EmailJS SDK & Config -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="env.js"></script>
   <script src="script.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
-    integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="js/wow.min.js"></script>
-
-  <script>
-    new WOW().init();
-  </script>
-
-  <script>
-//     emailjs.init("5Ueb2VU9SGfmX26ml");
-
-//     document.addEventListener(
-//       "submit",
-//       function (e) {
-//         e.preventDefault();
-//         e.stopImmediatePropagation();
-//         return false;
-//       },
-//       true // 
-//     );
-
-//     document.addEventListener("click", function (e) {
-//       const btn = e.target.closest(".btn_c");
-//       if (!btn) return;
-
-//       e.preventDefault();
-//       e.stopImmediatePropagation();
-
-//       const name = document.getElementById("user_name")?.value.trim();
-//       const email = document.getElementById("mail_id")?.value.trim();
-//       const message = document.getElementById("message_body")?.value.trim();
-
-//       if (!name || !email || !message) {
-//         alert("Please fill all fields");
-//         return;
-//       }
-
-//       btn.disabled = true;
-//       const oldText = btn.innerText;
-//       btn.innerText = "Sending...";
-
-//       const userMail = emailjs.send("service_cvp5dqa", "template_16recw9", {
-//         to_name: name,
-//         from_name: "Subrata Pramanik",
-//         reply_to: email,
-//         message: `Hi ${name},
-
-// Thanks for contacting me 😊
-// I will get back to you shortly.`,
-//       });
-
-//       const ownerMail = emailjs.send("service_cvp5dqa", "template_16recw9", {
-//         to_name: "Subrata Pramanik",
-//         from_name: "Portfolio Website",
-//         reply_to: 'myportfolio357@gmail.com',
-//         message: `New message from portfolio
-
-// Name: ${name}
-// Email: ${email}
-
-// Message:
-// ${message}`,
-//       });
-
-//       Promise.all([userMail, ownerMail])
-//         .then(() => {
-//           alert("Message sent successfully 📩");
-//           document.querySelectorAll("form").forEach(f => f.reset());
-//         })
-//         .catch((err) => {
-//           console.error(err);
-//           alert("Failed to send message");
-//         })
-//         .finally(() => {
-//           btn.disabled = false;
-//           btn.innerText = oldText;
-//         });
-//     });
-  </script>
-
-<script src="env.js"></script>
-
-<script>
-  emailjs.init(window.__ENV__.EMAILJS_PUBLIC_KEY);
-
-  document.addEventListener(
-    "submit",
-    function (e) {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      return false;
-    },
-    true
-  );
-
-  document.addEventListener("click", function (e) {
-    const btn = e.target.closest(".btn_c");
-    if (!btn) return;
-
-    e.preventDefault();
-    e.stopImmediatePropagation();
-
-    const name = document.getElementById("user_name")?.value.trim();
-    const email = document.getElementById("mail_id")?.value.trim();
-    const message = document.getElementById("message_body")?.value.trim();
-
-    if (!name || !email || !message) {
-      alert("Please fill all fields");
-      return;
-    }
-
-    btn.disabled = true;
-    const oldText = btn.innerText;
-    btn.innerText = "Sending...";
-
-    const userMail = emailjs.send(
-      window.__ENV__.EMAILJS_SERVICE_ID,
-      window.__ENV__.EMAILJS_TEMPLATE_ID,
-      {
-        to_name: name,
-        from_name: "Subrata Pramanik",
-        reply_to: email,
-        message: `Hi ${name},
-
-Thanks for contacting me 😊
-I will get back to you shortly.`,
-      }
-    );
-
-    const ownerMail = emailjs.send(
-      window.__ENV__.EMAILJS_SERVICE_ID,
-      window.__ENV__.EMAILJS_TEMPLATE_ID,
-      {
-        to_name: "Subrata Pramanik",
-        from_name: "Portfolio Website",
-        reply_to: "myprotfolio357@gmail.com",
-        message: `New message from portfolio
-
-Name: ${name}
-Email: ${email}
-
-Message:
-${message}`,
-      }
-    );
-
-    Promise.all([userMail, ownerMail])
-      .then(() => {
-        alert("Message sent successfully 📩");
-        document.querySelectorAll("form").forEach((f) => f.reset());
-      })
-      .catch((err) => {
-        console.error(err);
-        alert("Failed to send message");
-      })
-      .finally(() => {
-        btn.disabled = false;
-        btn.innerText = oldText;
-      });
-  });
-</script>
-
 </body>
-
-
-
 </html>

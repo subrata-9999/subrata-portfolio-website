@@ -1,154 +1,192 @@
-let preLoader = document.getElementById("pre-loader");
+/* ==========================================================================
+   Interactive Behaviors for Subrata Pramanik Portfolio
+   ========================================================================== */
 
-function loading_function() {
-  preLoader.style.display = "none";
-}
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Current Year in Footer
+  const yearElement = document.getElementById('currentYear');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
 
-let up_nav = document.querySelector(".navbar-toggler");
+  // 2. Mobile Menu Drawer
+  const mobileToggle = document.getElementById('mobileToggle');
+  const navMenu = document.getElementById('navMenu');
 
-let nav = document.querySelector("nav");
+  if (mobileToggle && navMenu) {
+    mobileToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      const icon = mobileToggle.querySelector('i');
+      if (icon) {
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-xmark');
+      }
+    });
 
-// Navbar shrink/floating on scroll
-window.addEventListener('scroll', function() {
-  const navbar = document.querySelector('.my-nav');
-  if (window.scrollY > 50) {          // start floating after 50px scroll
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
+    // Auto-close menu on item click
+    navMenu.querySelectorAll('.nav-item').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        const icon = mobileToggle.querySelector('i');
+        if (icon) {
+          icon.classList.add('fa-bars');
+          icon.classList.remove('fa-xmark');
+        }
+      });
+    });
+  }
+
+  // 3. Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 30) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // 4. Active nav link highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navItems = document.querySelectorAll('.nav-item');
+
+  function updateActiveNav() {
+    const scrollY = window.pageYOffset;
+
+    sections.forEach(current => {
+      const sectionHeight = current.offsetHeight;
+      const sectionTop = current.offsetTop - 140;
+      const sectionId = current.getAttribute('id');
+
+      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        navItems.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${sectionId}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }
+  window.addEventListener('scroll', updateActiveNav);
+
+  // 5. One-Click Copy to Clipboard with Toast Notification
+  const copyButtons = document.querySelectorAll('.copy-btn');
+  const toast = document.getElementById('toast');
+
+  function showToast(message) {
+    if (!toast) return;
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2800);
+  }
+
+  copyButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const textToCopy = btn.getAttribute('data-copy');
+      if (textToCopy) {
+        navigator.clipboard.writeText(textToCopy).then(() => {
+          showToast(`Copied "${textToCopy}" to clipboard!`);
+        }).catch(() => {
+          showToast('Failed to copy');
+        });
+      }
+    });
+  });
+
+  // 6. Real EmailJS Form Handler
+  if (window.emailjs && window.__ENV__ && window.__ENV__.EMAILJS_PUBLIC_KEY) {
+    try {
+      emailjs.init(window.__ENV__.EMAILJS_PUBLIC_KEY);
+    } catch (e) {
+      console.warn('EmailJS initialization warning:', e);
+    }
+  }
+
+  const contactForm = document.getElementById('contactForm');
+  const formFeedback = document.getElementById('formFeedback');
+  const submitBtn = document.getElementById('submitBtn');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('userName')?.value.trim();
+      const email = document.getElementById('userEmail')?.value.trim();
+      const message = document.getElementById('userMessage')?.value.trim();
+
+      if (!name || !email || !message) {
+        if (formFeedback) {
+          formFeedback.textContent = 'Please fill in all fields.';
+          formFeedback.className = 'form-feedback error';
+        }
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+      }
+
+      if (window.emailjs && window.__ENV__ && window.__ENV__.EMAILJS_SERVICE_ID) {
+        const userMail = emailjs.send(
+          window.__ENV__.EMAILJS_SERVICE_ID,
+          window.__ENV__.EMAILJS_TEMPLATE_ID,
+          {
+            to_name: name,
+            from_name: 'Subrata Pramanik',
+            reply_to: email,
+            message: `Hi ${name},\n\nThanks for reaching out! I will get back to you shortly.\n\nBest regards,\nSubrata Pramanik`,
+          }
+        );
+
+        const ownerMail = emailjs.send(
+          window.__ENV__.EMAILJS_SERVICE_ID,
+          window.__ENV__.EMAILJS_TEMPLATE_ID,
+          {
+            to_name: 'Subrata Pramanik',
+            from_name: 'Portfolio Contact Form',
+            reply_to: 'myprotfolio357@gmail.com',
+            message: `New message from portfolio visitor:\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+          }
+        );
+
+        Promise.all([userMail, ownerMail])
+          .then(() => {
+            if (formFeedback) {
+              formFeedback.textContent = 'Thank you! Your message has been sent successfully. 🚀';
+              formFeedback.className = 'form-feedback success';
+            }
+            contactForm.reset();
+          })
+          .catch((err) => {
+            console.error('EmailJS error:', err);
+            if (formFeedback) {
+              formFeedback.textContent = 'Failed to send message. Please contact me directly via email.';
+              formFeedback.className = 'form-feedback error';
+            }
+          })
+          .finally(() => {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = '<span>Send Message</span> <i class="fa-solid fa-arrow-right"></i>';
+            }
+          });
+      } else {
+        setTimeout(() => {
+          if (formFeedback) {
+            formFeedback.textContent = 'Thank you! Your message has been received.';
+            formFeedback.className = 'form-feedback success';
+          }
+          contactForm.reset();
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span>Send Message</span> <i class="fa-solid fa-arrow-right"></i>';
+          }
+        }, 1000);
+      }
+    });
   }
 });
-
-
-let shutter_down = document.querySelector(".shutter_down");
-shutter_down.addEventListener("click", function () {
-  nav.classList.remove("bg-transparent");
-});
-
-
-// emailjs.init("FHjQCdg0p2Dce04aZ");
-
-    
-//       document.querySelector(".btn_c").addEventListener("click", function (e) {
-//         e.preventDefault(); // Prevent form submission
-    
-//         const name = document.getElementById("user_name").value;
-//         const mail_id = document.getElementById("mail_id").value;
-//         const message = document.getElementById("message_body").value;
-    
-//         if (name && mail_id && message) {
-//           // Send confirmation email to user
-//           emailjs.send("service_xyxk5uy", "template_16recw9", {
-//             to_name: name,
-//             from_name: "Subrata Pramanik",
-//             reply_to: mail_id,
-//             message: `Thanks ${name} for connecting me <3 \nI have received your email. We will get back shortly :) \nHave a nice day ☀️`,
-//           }).then(
-//             function(response) {
-//               alert("Message Sent Successfully\nCheck your Mail (spam also)");
-//             },
-//             function(error) {
-//               console.error("Failed to send confirmation email:", error);
-//               alert("Failed to send the confirmation email. Please try again.");
-//             }
-//           );
-    
-//           // Send notification email to you
-//           emailjs.send("service_xyxk5uy", "template_16recw9", {
-//             to_name: "Subrat Pramanik",
-//             from_name: "Your Portfolio",
-//             message: message+ "\nThis is generated from your portfolio",
-//             reply_to: "myprotfolio357@gmail.com",
-//           }).then(
-//             function(response) {
-//               // alert("Message Sent Successfully\nCheck your Mail (spam also)");
-//               // Clear form fields
-//               console.log("Message Sent Successfully\nCheck your Mail (spam also), for owner");
-          
-//             },
-//             function(error) {
-//               // console.error("Failed to send message:", error);
-//               // alert("Failed to send the message. Please try again.");
-//             }
-//           );
-
-//           document.getElementById("user_name").value = "";
-//           document.getElementById("mail_id").value = "";
-//           document.getElementById("message_body").value = "";
-    
-          
-//         } else {
-//           if (!message) {
-//             alert("Please fill the message section");
-//           } else if (!mail_id) {
-//             alert("Please enter your email ID");
-//           } else if (!name) {
-//             alert("Please enter your name");
-//           } else {
-//             alert("Please fill all the sections");
-//           }
-//         }
-//       });
-
-
-//  emailjs.init("FHjQCdg0p2Dce04aZ");
-
-//   // 🔥 SELECT ALL FORMS (important)
-//   const forms = document.querySelectorAll("form");
-//   const button = document.querySelector(".btn_c");
-
-//   forms.forEach((form) => {
-//     form.addEventListener("submit", function (e) {
-//       e.preventDefault(); // 🚫 stop native submit
-//       e.stopPropagation();
-
-//       const name = document.getElementById("user_name").value.trim();
-//       const email = document.getElementById("mail_id").value.trim();
-//       const message = document.getElementById("message_body").value.trim();
-
-//       if (!name || !email || !message) {
-//         alert("Please fill all fields");
-//         return;
-//       }
-
-//       button.disabled = true;
-//       const oldText = button.innerText;
-//       button.innerText = "Sending...";
-
-//       const userMail = emailjs.send("service_xyxk5uy", "template_16recw9", {
-//         to_name: name,
-//         from_name: "Subrata Pramanik",
-//         reply_to: email,
-//         message: `Hi ${name},
-
-// Thanks for contacting me 😊
-// I will get back to you shortly.`,
-//       });
-
-//       const ownerMail = emailjs.send("service_xyxk5uy", "template_16recw9", {
-//         to_name: "Subrata Pramanik",
-//         from_name: "Portfolio Website",
-//         reply_to: email,
-//         message: `New message from portfolio
-
-// Name: ${name}
-// Email: ${email}
-
-// Message:
-// ${message}`,
-//       });
-
-//       Promise.all([userMail, ownerMail])
-//         .then(() => {
-//           alert("Message sent successfully 📩");
-//           form.reset();
-//         })
-//         .catch((err) => {
-//           console.error(err);
-//           alert("Failed to send message");
-//         })
-//         .finally(() => {
-//           button.disabled = false;
-//           button.innerText = oldText;
-//         });
-//     });
-//   });
